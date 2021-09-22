@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bmi calculator</title>
+
+    <Script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector("form").onsubmit = function () {
+                var weight = document.querySelector("#weight").value;
+                var height = document.querySelector("#height").value;
+                var Bcalc = weight / (height * height) * 703;
+                var BMI = Bcalc.toFixed(1);
+                document.querySelector("#BMI").innerHTML = BMI;
+
+                if (BMI < 18.5) {
+                    document.querySelector("#Status").innerHTML = "Underweight";
+
+                } else if (BMI >= 18.5 && BMI < 24.9) {
+                    document.querySelector("#Status").innerHTML = "Normal weight";
+
+                } else {
+                    document.querySelector("#Status").innerHTML = "Overweight";
+
+                }
+                return false;
+            };
+
+        });
+
+
+    </Script>
+</head>
+
+<body>
+    <form>
+        <input type="number" id="height" placeholder="Enter Your Weight in kg: ">
+        <input type="number" id="weight" placeholder="Enter Your Height in cm: ">
+        <input type="submit" value="Result" id="Result">
+    </form>
+    <br><br>
+    BMI:
+    <span id="BMI"></span>
+    <br><br>
+    Your Weight Status: <span id="Status"></span>
+</body>
+
+</html>
